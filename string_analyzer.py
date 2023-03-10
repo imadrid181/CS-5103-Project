@@ -31,8 +31,9 @@ def print_wc(wc):
         stmt = "{word}: {freq}"
         print(stmt.format(word=key, freq=wc[key]))
 
-print(sys.argv[1])
-ws = words(sys.argv[1])
-wc = word_count(ws)
-print_wc(wc)
+if(len(sys.argv) == 2):
+    print(sys.argv[1])
+    ws = words(sys.argv[1])
+    wc = word_count(ws)
+    print_wc(wc)
 
