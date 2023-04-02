@@ -27,13 +27,37 @@ def word_count(ws):
 
 def print_wc(wc):
     print("Frequency of Each Unique Word:")
-    for key in list(wc):
+    list_keys = list(wc)
+    for key in list_keys:
         stmt = "{word}: {freq}"
-        print(stmt.format(word=key, freq=wc[key]))
+        if key == list_keys[-1]:
+            print(stmt.format(word=key, freq=wc[key]))
+        else:
+            print(stmt.format(word=key, freq=wc[key]), end=", ")
+
+def line_count(text):
+    lc = 1
+    lc += text.count('\n')
+    return lc
+
+def char_count(text):
+    cc = 0
+    for c in text:
+        if c not in BLANK:
+            cc += 1
+    return cc
+
+def print_analysis(wc, lc, cc):
+    print_wc(wc)
+    print("Line Count: {lc}".format(lc = lc))
+    print("Char Count: {cc}".format(cc = cc))
 
 if(len(sys.argv) == 2):
-    print(sys.argv[1])
-    ws = words(sys.argv[1])
+    text = sys.argv[1]
+    print(text)
+    ws = words(text)
     wc = word_count(ws)
-    print_wc(wc)
+    lc = line_count(text)
+    cc = char_count(text)
+    print_analysis(wc, lc, cc)
 
