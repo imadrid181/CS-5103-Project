@@ -9,7 +9,7 @@ def words(text):
         if c not in BLANK:
             word += c
         else:
-            if word != '':
+            if   word != '':
                 ws.append(word.capitalize())
             word = ''
 
@@ -52,12 +52,51 @@ def print_analysis(wc, lc, cc):
     print("Line Count: {lc}".format(lc = lc))
     print("Char Count: {cc}".format(cc = cc))
 
-if(len(sys.argv) == 2):
-    text = sys.argv[1]
-    print(text)
-    ws = words(text)
-    wc = word_count(ws)
-    lc = line_count(text)
-    cc = char_count(text)
-    print_analysis(wc, lc, cc)
+def replace(text, find_word, rep_word):
+    word = ''
+    updated_text = ''
+    for char in text:
+        if char not in BLANK:
+            word += char
+        else:
+            if word != '':
+                if word.lower() == find_word:
+                    updated_text += rep_word
+                else:
+                    updated_text += word
+            word = ''
+            updated_text += char
+    
+    if word != '':
+        if word.lower() == find_word:
+            updated_text += rep_word
+        else:
+            updated_text += word
+            
+    return updated_text
 
+if sys.argv[1] == 'analysis':
+    text = sys.argv[2]
+    print(text)
+
+    words = words(text)
+    wordFrequency = word_count(words)
+    lineCount = line_count(text)
+    charCount = char_count(text)    
+    print_analysis(wordFrequency, lineCount, charCount)
+
+if sys.argv[1] == 'replace':
+    text = sys.argv[2]
+    findWord = sys.argv[3]
+    repWord = sys.argv[4]
+    print("Original Text")
+    print(text)
+
+    updatedText = replace(text, findWord, repWord)
+    print("\nUpdated Text:")
+    print(updatedText)
+    words = words(updatedText)
+    wordFrequency = word_count(words)
+    lineCount = line_count(updatedText)
+    charCount = char_count(updatedText)
+    print_analysis(wordFrequency, lineCount, charCount)
