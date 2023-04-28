@@ -47,6 +47,49 @@ test9_wc = {"Did": 1, "You": 1, "Hear": 1, "About": 1, "The": 2, "Gorilla": 3, "
 test9_lc = 4
 test9_cc = 96
 
+test10 = "Hello there I hope you are having a great day"
+test10_find_word = "we"
+test10_rep_word = "you"
+test10_updated_text = "Hello there I hope you are having a great day"
+test10_wc = {"Hello": 1, "There": 1, "I": 1, "Hope": 1, "You": 1, "Are": 1, "Having": 1, "A": 1,
+             "Great": 1, "Day": 1}
+test10_lc = 1
+test10_cc = 36
+
+test11 = "To fix the fridge you need to first ensure that it is unplugged"
+test11_find_word = "fridge"
+test11_rep_word = "oven"
+test11_updated_text = "To fix the oven you need to first ensure that it is unplugged"
+test11_wc = {"To": 2, "Fix": 1, "The": 1, "Oven": 1, "You": 1, "Need": 1, "First": 1, "Ensure": 1,
+             "That": 1, "It": 1, "Is": 1, "Unplugged": 1}
+test11_lc = 1
+test11_cc = 49
+
+test12 = "This is a test"
+test12_find_word = "is"
+test12_rep_word = "was"
+test12_updated_text = "This was a test"
+test12_wc = {"This": 1, "Was": 1, "A": 1, "Test": 1}
+test12_lc = 1
+test12_cc = 12
+
+test13 = "Is there anything else there"
+test13_find_word = "there"
+test13_rep_word = "an"
+test13_updated_text = "Is an anything else an"
+test13_wc = {"Is": 1, "An": 2, "Anything": 1, "Else": 1}
+test13_lc = 1
+test13_cc = 18
+
+test14 = "There you are \nWe were supposed to be there fifteen minutes ago"
+test14_find_word = "there"
+test14_rep_word = "an"
+test14_updated_text = "an you are \nWe were supposed to be an fifteen minutes ago"
+test14_wc = {"An": 2, "You": 1, "Are": 1, "We": 1, "Were": 1, "Supposed": 1, "To": 1, "Be": 1, 
+             "Fifteen": 1, "Minutes": 1, "Ago": 1}
+test14_lc = 2
+test14_cc = 45
+
 ws = words(test1)
 wc = word_count(ws)
 lc = line_count(test1)
@@ -145,3 +188,83 @@ if test9_wc == wc and test9_lc == lc and test9_cc == cc:
     print("Test 9: Passed")
 else:
     print("Test 9: Failed") 
+
+updatedText = replace(test10, test10_find_word, test10_rep_word)
+ws = words(updatedText)
+wc = word_count(ws)
+lc = line_count(updatedText)
+cc = char_count(updatedText)
+print("\nTEST 10:")
+print("Original Text")
+print(test10)
+print("\nUpdated Text")
+print(updatedText)
+print_analysis(wc, lc, cc)
+if test10_updated_text == updatedText and test10_wc == wc and test10_lc == lc and test10_cc == cc:
+    print("Test 10: Passed")
+else:
+    print("Test 10: Failed") 
+
+updatedText = replace(test11, test11_find_word, test11_rep_word)
+ws = words(updatedText)
+wc = word_count(ws)
+lc = line_count(updatedText)
+cc = char_count(updatedText)
+print("\nTEST 11:")
+print("Original Text")
+print(test11)
+print("\nUpdated Text")
+print(updatedText)
+print_analysis(wc, lc, cc)
+if test11_updated_text == updatedText and test11_wc == wc and test11_lc == lc and test11_cc == cc:
+    print("Test 11: Passed")
+else:
+    print("Test 11: Failed") 
+
+updatedText = replace(test12, test12_find_word, test12_rep_word)
+ws = words(updatedText)
+wc = word_count(ws)
+lc = line_count(updatedText)
+cc = char_count(updatedText)
+print("\nTEST 12:")
+print("Original Text")
+print(test12)
+print("\nUpdated Text")
+print(updatedText)
+print_analysis(wc, lc, cc)
+if test12_updated_text == updatedText and test12_wc == wc and test12_lc == lc and test12_cc == cc:
+    print("Test 12: Passed")
+else:
+    print("Test 12: Failed") 
+
+updatedText = replace(test13, test13_find_word, test13_rep_word)
+ws = words(updatedText)
+wc = word_count(ws)
+lc = line_count(updatedText)
+cc = char_count(updatedText)
+print("\nTEST 13:")
+print("Original Text")
+print(test13)
+print("\nUpdated Text")
+print(updatedText)
+print_analysis(wc, lc, cc)
+if test13_updated_text == updatedText and test13_wc == wc and test13_lc == lc and test13_cc == cc:
+    print("Test 13: Passed")
+else:
+    print("Test 13: Failed") 
+
+updatedText = replace(test14, test14_find_word, test14_rep_word)
+ws = words(updatedText)
+wc = word_count(ws)
+lc = line_count(updatedText)
+cc = char_count(updatedText)
+print("\nTEST 14:")
+print("Original Text")
+print(test14)
+print("\nUpdated Text")
+print(updatedText)
+print_analysis(wc, lc, cc)
+if test14_updated_text == updatedText and test14_wc == wc and test14_lc == lc and test14_cc == cc:
+    print("Test 14: Passed")
+else:
+    print("Test 14: Failed") 

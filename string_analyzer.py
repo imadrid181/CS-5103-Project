@@ -98,7 +98,7 @@ if len(sys.argv) == 4:
     charCount = char_count(updatedText)
     print_analysis(wordFrequency, lineCount, charCount)
 #Does Not Use Replace Function
-else:
+elif len(sys.argv) == 2:
     text = sys.argv[1]
     print(text)
 
