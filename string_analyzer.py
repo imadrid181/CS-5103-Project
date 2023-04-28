@@ -1,6 +1,12 @@
 import sys
 BLANK = [' ', '\n', '\t']
 
+"""
+Output will be the analysis of the given text or the analysis
+of the text after replacing all occurances of the given word
+with the replacement word.
+"""
+
 def words(text):
     word = ''
     ws = []
@@ -9,7 +15,7 @@ def words(text):
         if c not in BLANK:
             word += c
         else:
-            if   word != '':
+            if word != '':
                 ws.append(word.capitalize())
             word = ''
 
@@ -75,20 +81,11 @@ def replace(text, find_word, rep_word):
             
     return updated_text
 
-if sys.argv[1] == 'analysis':
-    text = sys.argv[2]
-    print(text)
-
-    words = words(text)
-    wordFrequency = word_count(words)
-    lineCount = line_count(text)
-    charCount = char_count(text)    
-    print_analysis(wordFrequency, lineCount, charCount)
-
-if sys.argv[1] == 'replace':
-    text = sys.argv[2]
-    findWord = sys.argv[3]
-    repWord = sys.argv[4]
+#Uses Replace Function
+if len(sys.argv) == 4:
+    text = sys.argv[1]
+    findWord = sys.argv[2]
+    repWord = sys.argv[3]
     print("Original Text")
     print(text)
 
@@ -99,4 +96,14 @@ if sys.argv[1] == 'replace':
     wordFrequency = word_count(words)
     lineCount = line_count(updatedText)
     charCount = char_count(updatedText)
+    print_analysis(wordFrequency, lineCount, charCount)
+#Does Not Use Replace Function
+else:
+    text = sys.argv[1]
+    print(text)
+
+    words = words(text)
+    wordFrequency = word_count(words)
+    lineCount = line_count(text)
+    charCount = char_count(text)    
     print_analysis(wordFrequency, lineCount, charCount)
