@@ -35,11 +35,12 @@ def print_wc(wc):
     print("Frequency of Each Unique Word:")
     list_keys = list(wc)
     for key in list_keys:
-        stmt = "{word}: {freq}"
+        stmt = "{word}: {freq}, "
+        last_stmt = "{word}: {freq}"
         if key == list_keys[-1]:
-            print(stmt.format(word=key, freq=wc[key]))
+            print(last_stmt.format(word=key, freq=wc[key]))
         else:
-            print(stmt.format(word=key, freq=wc[key]), end=", ")
+            print(stmt.format(word=key, freq=wc[key]))
 
 def line_count(text):
     lc = 1

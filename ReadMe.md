@@ -1,4 +1,4 @@
-Written in Python3.10.\
+Written in Python2.7.2\
 The program will take a string as an input and return the frequency of each unique word in the string,\
 the number of lines in the string, and the number of chars in the string.\
 The program can also replace a given word in a string with another word\
