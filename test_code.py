@@ -1,4 +1,4 @@
-from string_analyzer import *
+from string_analyzer import words, word_count, line_count, char_count, print_analysis, replace
 
 test1 = "There are no repeated words in this sentence"
 test1_wc = {"There": 1, "Are": 1, "No": 1, "Repeated": 1, "Words": 1, "In": 1, "This": 1, "Sentence": 1}
@@ -82,7 +82,7 @@ test13_lc = 1
 test13_cc = 18
 
 test14 = "There you are \nWe were supposed to be there fifteen minutes ago"
-test14_find_word = "there"
+test14_find_word = "ThEre"
 test14_rep_word = "an"
 test14_updated_text = "an you are \nWe were supposed to be an fifteen minutes ago"
 test14_wc = {"An": 2, "You": 1, "Are": 1, "We": 1, "Were": 1, "Supposed": 1, "To": 1, "Be": 1, 

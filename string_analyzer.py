@@ -66,7 +66,7 @@ def replace(text, find_word, rep_word):
             word += char
         else:
             if word != '':
-                if word.lower() == find_word:
+                if word.lower() == find_word.lower():
                     updated_text += rep_word
                 else:
                     updated_text += word
@@ -74,7 +74,7 @@ def replace(text, find_word, rep_word):
             updated_text += char
     
     if word != '':
-        if word.lower() == find_word:
+        if word.lower() == find_word.lower():
             updated_text += rep_word
         else:
             updated_text += word
@@ -92,18 +92,18 @@ if len(sys.argv) == 4:
     updatedText = replace(text, findWord, repWord)
     print("\nUpdated Text:")
     print(updatedText)
-    words = words(updatedText)
-    wordFrequency = word_count(words)
-    lineCount = line_count(updatedText)
-    charCount = char_count(updatedText)
-    print_analysis(wordFrequency, lineCount, charCount)
+    text = updatedText
 #Does Not Use Replace Function
 elif len(sys.argv) == 2:
     text = sys.argv[1]
     print(text)
+else:
+    text = None
 
-    words = words(text)
-    wordFrequency = word_count(words)
-    lineCount = line_count(text)
-    charCount = char_count(text)    
-    print_analysis(wordFrequency, lineCount, charCount)
+if __name__ == "__main__":
+    if text is not None:
+        words = words(text)
+        wordFrequency = word_count(words)
+        lineCount = line_count(text)
+        charCount = char_count(text)    
+        print_analysis(wordFrequency, lineCount, charCount)
